@@ -17,7 +17,7 @@
 			<attribute name="maven.pomderived" value="true"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry exported="true" kind="lib" path="C:/Users/sagar/.m2/repository/org/seleniumhq/selenium/selenium-api/4.25.0/selenium-api-4.25.0.jar" sourcepath="C:/Users/sagar/.m2/repository/org/seleniumhq/selenium/selenium-api/4.25.0/selenium-api-4.25.0-sources.jar">
+	<classpathentry exported="true" kind="lib" path="/Users/sagarkumarchowdhury/.m2/repository/org/seleniumhq/selenium/selenium-java/4.25.0/selenium-java-4.25.0.jar" sourcepath="/Users/sagarkumarchowdhury/.m2/repository/org/seleniumhq/selenium/selenium-java/4.25.0/selenium-java-4.25.0.jar">
 		<attributes>
 			<attribute name="maven.pomderived" value="true"/>
 			<attribute name="maven.groupId" value="org.seleniumhq.selenium"/>
@@ -35,5 +35,5 @@
 			<attribute name="maven.scope" value="compile"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="output" path="target/classes"/>
+	<classpathentry kind="output" path="target/classes"></classpathentry>
 </classpath>
