@@ -16,8 +16,8 @@ public class Assignment8 {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		System.setProperty("webdriver.chorme.driver",
-				"D:\\\\Selenium New\\\\API\\\\Selenium_October_2024\\\\chromedriver.exe");
+System.setProperty("webdriver.chorme.driver",
+				"/Users/sagarkumarchowdhury/Test1/chromedriver");
 		WebDriver driver = new ChromeDriver();
 		String inputValue= "Uni";
 		String selectedValue = "United Kingdom (UK)";
