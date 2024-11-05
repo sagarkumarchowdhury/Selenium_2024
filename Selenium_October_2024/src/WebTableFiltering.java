@@ -1,5 +1,7 @@
 import java.util.List;
+import java.util.stream.Collectors;
 
+import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -16,7 +18,9 @@ public class WebTableFiltering {
 		driver.get("https://rahulshettyacademy.com/seleniumPractise/#/offers");
 		driver.findElement(By.id("search-field")).sendKeys("Rice");
 		List<WebElement> ls = driver.findElements(By.xpath("//tr/td[1]"));
-		ls.stream().filter(s->s.getText().contains("Rice")).
+		List<WebElement> searchValue = ls.stream().filter(s->s.getText().contains("Rice")).collect(Collectors.toList());
+		Assert.assertEquals(searchValue.size(), 1);
+		
 		
 
 	}
