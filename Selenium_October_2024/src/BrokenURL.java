@@ -2,14 +2,12 @@ import java.io.IOException;
 import java.net.HttpURLConnection;
 import java.net.URI;
 import java.net.URISyntaxException;
-import java.time.Duration;
 import java.util.List;
-
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.testng.Assert;
+import org.testng.asserts.SoftAssert;
 
 public class BrokenURL {
 
@@ -20,21 +18,21 @@ public class BrokenURL {
 		WebDriver driver = new ChromeDriver();
 		driver.manage().window().maximize();
 		driver.get("https://rahulshettyacademy.com/AutomationPractice/");
+		SoftAssert soft = new SoftAssert();
 		List<WebElement> links = driver.findElements(By.cssSelector("li[class='gf-li'] a"));
 		for (WebElement link : links) {
 			String url = link.getAttribute("href");
-			HttpURLConnection conn = (HttpURLConnection) new URI(url).toURL().openConnection();
+			URI u = new URI(url);
+			HttpURLConnection conn = (HttpURLConnection) u.toURL().openConnection();
 			conn.setRequestMethod("HEAD");
 			conn.connect();
-			Thread.sleep(Duration.ofSeconds(2));
 			int respCode = conn.getResponseCode();
 			System.out.println(url);
 			System.out.println(respCode);
-			if (respCode > 403) {
-				System.out.println("Brokern link is "+link.getText()+"");
-				Assert.assertTrue(false);
-			}
+			soft.assertTrue(respCode <= 403, "Brokern link is " + url + "");
+
 		}
+		soft.assertAll();
 
 	}
 
