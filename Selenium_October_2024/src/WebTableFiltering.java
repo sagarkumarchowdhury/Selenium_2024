@@ -18,10 +18,9 @@ public class WebTableFiltering {
 		driver.get("https://rahulshettyacademy.com/seleniumPractise/#/offers");
 		driver.findElement(By.id("search-field")).sendKeys("Rice");
 		List<WebElement> ls = driver.findElements(By.xpath("//tr/td[1]"));
-		List<WebElement> searchValue = ls.stream().filter(s->s.getText().contains("Rice")).collect(Collectors.toList());
-		Assert.assertEquals(searchValue.size(), 1);
-		
-		
+		List<WebElement> searchValue = ls.stream().filter(s -> s.getText().contains("Rice"))
+				.collect(Collectors.toList());
+		Assert.assertEquals(searchValue.size(), ls.size());
 
 	}
 
